@@ -32,10 +32,13 @@ Install tools you need to perform remote processing.
 If a build system requires Shell initialization scripts or special environment variables,
 you should place them to your `~/.bashrc` or `~/.bash_profile` file depending on your remote OS.
 Be careful, some Bash configurations do block config evaluation when detecting non-interactive mode.
-In such case, you should place your declarations before the blocking instruction such as the following one.
+In such case, you should place your declarations *before* the blocking instruction such as the following one.
 
 ```bash
+export ANDROID_HOME="/opt/android-sdk"
+
 # If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 ```
 
 ## Recipe
